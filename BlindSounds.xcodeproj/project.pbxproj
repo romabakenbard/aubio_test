@@ -13,6 +13,10 @@
 		C7D92A8B22FBFB78004B93A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D92A8A22FBFB78004B93A9 /* Assets.xcassets */; };
 		C7D92A8E22FBFB78004B93A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7D92A8C22FBFB78004B93A9 /* LaunchScreen.storyboard */; };
 		C7D92A9122FBFB78004B93A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D92A9022FBFB78004B93A9 /* main.m */; };
+		C7D92B1C22FC0130004B93A9 /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D92B1B22FC0130004B93A9 /* aubio.framework */; };
+		C7D92B1F22FC018A004B93A9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D92B1E22FC018A004B93A9 /* AudioToolbox.framework */; };
+		C7D92B2122FC0193004B93A9 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D92B2022FC0193004B93A9 /* Accelerate.framework */; };
+		C7D92B2522FC043C004B93A9 /* 27d43eba.wav in Resources */ = {isa = PBXBuildFile; fileRef = C7D92B2422FC043C004B93A9 /* 27d43eba.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,11 @@
 		C7D92A8D22FBFB78004B93A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7D92A8F22FBFB78004B93A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7D92A9022FBFB78004B93A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C7D92AAA22FBFBA9004B93A9 /* BlindSounds copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BlindSounds copy-Info.plist"; path = "/Users/romabakenbard/Sources/BlindSounds/BlindSounds copy-Info.plist"; sourceTree = "<absolute>"; };
+		C7D92B1B22FC0130004B93A9 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = aubio.framework; sourceTree = "<group>"; };
+		C7D92B1E22FC018A004B93A9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C7D92B2022FC0193004B93A9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		C7D92B2422FC043C004B93A9 /* 27d43eba.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 27d43eba.wav; path = ../../../Downloads/samples/27d43eba.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7D92B2122FC0193004B93A9 /* Accelerate.framework in Frameworks */,
+				C7D92B1F22FC018A004B93A9 /* AudioToolbox.framework in Frameworks */,
+				C7D92B1C22FC0130004B93A9 /* aubio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,8 +54,12 @@
 		C7D92A7522FBFB77004B93A9 = {
 			isa = PBXGroup;
 			children = (
+				C7D92B2222FC040E004B93A9 /* Samples */,
+				C7D92B1B22FC0130004B93A9 /* aubio.framework */,
 				C7D92A8022FBFB77004B93A9 /* BlindSounds */,
 				C7D92A7F22FBFB77004B93A9 /* Products */,
+				C7D92AAA22FBFBA9004B93A9 /* BlindSounds copy-Info.plist */,
+				C7D92B1D22FC0189004B93A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +85,23 @@
 				C7D92A9022FBFB78004B93A9 /* main.m */,
 			);
 			path = BlindSounds;
+			sourceTree = "<group>";
+		};
+		C7D92B1D22FC0189004B93A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7D92B2022FC0193004B93A9 /* Accelerate.framework */,
+				C7D92B1E22FC018A004B93A9 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7D92B2222FC040E004B93A9 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				C7D92B2422FC043C004B93A9 /* 27d43eba.wav */,
+			);
+			path = Samples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +130,7 @@
 		C7D92A7622FBFB77004B93A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = BS;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Roma Bakenbard";
 				TargetAttributes = {
@@ -128,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7D92B2522FC043C004B93A9 /* 27d43eba.wav in Resources */,
 				C7D92A8E22FBFB78004B93A9 /* LaunchScreen.storyboard in Resources */,
 				C7D92A8B22FBFB78004B93A9 /* Assets.xcassets in Resources */,
 				C7D92A8922FBFB77004B93A9 /* Main.storyboard in Resources */,
@@ -287,11 +322,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T44BS6S6EZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BlindSounds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.constanta.BlindSounds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -304,11 +344,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T44BS6S6EZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BlindSounds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.constanta.BlindSounds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
