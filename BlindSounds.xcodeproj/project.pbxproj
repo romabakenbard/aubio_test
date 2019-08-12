@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F543BC255BE8AE805D78D2C /* libPods-BlindSounds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0BB675F2D75FDAFC95AF7C /* libPods-BlindSounds.a */; };
+		C7734EF222FD4EFB00ECA866 /* BSMicrophoneProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7734EF122FD4EFB00ECA866 /* BSMicrophoneProcessor.m */; };
+		C7734EF422FD6CF200ECA866 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7734EF322FD6CF200ECA866 /* Speech.framework */; };
 		C7D92A8322FBFB77004B93A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D92A8222FBFB77004B93A9 /* AppDelegate.m */; };
 		C7D92A8622FBFB77004B93A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D92A8522FBFB77004B93A9 /* ViewController.m */; };
 		C7D92A8922FBFB77004B93A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7D92A8722FBFB77004B93A9 /* Main.storyboard */; };
@@ -20,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68415DEE76A5044CE8A966B0 /* Pods-BlindSounds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindSounds.release.xcconfig"; path = "Target Support Files/Pods-BlindSounds/Pods-BlindSounds.release.xcconfig"; sourceTree = "<group>"; };
+		7B0BB675F2D75FDAFC95AF7C /* libPods-BlindSounds.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlindSounds.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7734EF022FD4EFB00ECA866 /* BSMicrophoneProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSMicrophoneProcessor.h; sourceTree = "<group>"; };
+		C7734EF122FD4EFB00ECA866 /* BSMicrophoneProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSMicrophoneProcessor.m; sourceTree = "<group>"; };
+		C7734EF322FD6CF200ECA866 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		C7D92A7E22FBFB77004B93A9 /* BlindSounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlindSounds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D92A8122FBFB77004B93A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C7D92A8222FBFB77004B93A9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,6 +43,7 @@
 		C7D92B1E22FC018A004B93A9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C7D92B2022FC0193004B93A9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C7D92B2422FC043C004B93A9 /* 27d43eba.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 27d43eba.wav; path = ../../../Downloads/samples/27d43eba.wav; sourceTree = "<group>"; };
+		E0F5CFA9B06DAD9242CE248B /* Pods-BlindSounds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindSounds.debug.xcconfig"; path = "Target Support Files/Pods-BlindSounds/Pods-BlindSounds.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,15 +51,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7734EF422FD6CF200ECA866 /* Speech.framework in Frameworks */,
 				C7D92B2122FC0193004B93A9 /* Accelerate.framework in Frameworks */,
 				C7D92B1F22FC018A004B93A9 /* AudioToolbox.framework in Frameworks */,
 				C7D92B1C22FC0130004B93A9 /* aubio.framework in Frameworks */,
+				1F543BC255BE8AE805D78D2C /* libPods-BlindSounds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0D4C4D21DEB9D8E621A218C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0F5CFA9B06DAD9242CE248B /* Pods-BlindSounds.debug.xcconfig */,
+				68415DEE76A5044CE8A966B0 /* Pods-BlindSounds.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C7734EEF22FD4EE200ECA866 /* Microphone */ = {
+			isa = PBXGroup;
+			children = (
+				C7734EF022FD4EFB00ECA866 /* BSMicrophoneProcessor.h */,
+				C7734EF122FD4EFB00ECA866 /* BSMicrophoneProcessor.m */,
+			);
+			path = Microphone;
+			sourceTree = "<group>";
+		};
 		C7D92A7522FBFB77004B93A9 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +89,7 @@
 				C7D92A7F22FBFB77004B93A9 /* Products */,
 				C7D92AAA22FBFBA9004B93A9 /* BlindSounds copy-Info.plist */,
 				C7D92B1D22FC0189004B93A9 /* Frameworks */,
+				C0D4C4D21DEB9D8E621A218C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +104,7 @@
 		C7D92A8022FBFB77004B93A9 /* BlindSounds */ = {
 			isa = PBXGroup;
 			children = (
+				C7734EEF22FD4EE200ECA866 /* Microphone */,
 				C7D92A8122FBFB77004B93A9 /* AppDelegate.h */,
 				C7D92A8222FBFB77004B93A9 /* AppDelegate.m */,
 				C7D92A8422FBFB77004B93A9 /* ViewController.h */,
@@ -90,8 +121,10 @@
 		C7D92B1D22FC0189004B93A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7734EF322FD6CF200ECA866 /* Speech.framework */,
 				C7D92B2022FC0193004B93A9 /* Accelerate.framework */,
 				C7D92B1E22FC018A004B93A9 /* AudioToolbox.framework */,
+				7B0BB675F2D75FDAFC95AF7C /* libPods-BlindSounds.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,6 +144,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7D92A9422FBFB78004B93A9 /* Build configuration list for PBXNativeTarget "BlindSounds" */;
 			buildPhases = (
+				7EC76DF8F25C8F21C40F24C0 /* [CP] Check Pods Manifest.lock */,
 				C7D92A7A22FBFB77004B93A9 /* Sources */,
 				C7D92A7B22FBFB77004B93A9 /* Frameworks */,
 				C7D92A7C22FBFB77004B93A9 /* Resources */,
@@ -171,6 +205,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7EC76DF8F25C8F21C40F24C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlindSounds-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C7D92A7A22FBFB77004B93A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -179,6 +238,7 @@
 				C7D92A8622FBFB77004B93A9 /* ViewController.m in Sources */,
 				C7D92A9122FBFB78004B93A9 /* main.m in Sources */,
 				C7D92A8322FBFB77004B93A9 /* AppDelegate.m in Sources */,
+				C7734EF222FD4EFB00ECA866 /* BSMicrophoneProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +362,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -318,8 +379,10 @@
 		};
 		C7D92A9522FBFB78004B93A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0F5CFA9B06DAD9242CE248B /* Pods-BlindSounds.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T44BS6S6EZ;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -327,6 +390,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = BlindSounds/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,14 +398,17 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.constanta.BlindSounds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C7D92A9622FBFB78004B93A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68415DEE76A5044CE8A966B0 /* Pods-BlindSounds.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T44BS6S6EZ;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -349,6 +416,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = BlindSounds/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,7 +424,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.constanta.BlindSounds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
