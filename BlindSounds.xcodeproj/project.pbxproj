@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F543BC255BE8AE805D78D2C /* libPods-BlindSounds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0BB675F2D75FDAFC95AF7C /* libPods-BlindSounds.a */; };
+		C700F57D2303FD6C00C611D4 /* mini_asa_coreml_004_078.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C700F57C2303FD6C00C611D4 /* mini_asa_coreml_004_078.mlmodel */; };
 		C7734EF222FD4EFB00ECA866 /* BSMicrophoneProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = C7734EF122FD4EFB00ECA866 /* BSMicrophoneProcessor.m */; };
 		C7734EF422FD6CF200ECA866 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7734EF322FD6CF200ECA866 /* Speech.framework */; };
 		C7D92A8322FBFB77004B93A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D92A8222FBFB77004B93A9 /* AppDelegate.m */; };
@@ -19,12 +20,12 @@
 		C7D92B1C22FC0130004B93A9 /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D92B1B22FC0130004B93A9 /* aubio.framework */; };
 		C7D92B1F22FC018A004B93A9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D92B1E22FC018A004B93A9 /* AudioToolbox.framework */; };
 		C7D92B2122FC0193004B93A9 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D92B2022FC0193004B93A9 /* Accelerate.framework */; };
-		C7D92B2522FC043C004B93A9 /* 27d43eba.wav in Resources */ = {isa = PBXBuildFile; fileRef = C7D92B2422FC043C004B93A9 /* 27d43eba.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		68415DEE76A5044CE8A966B0 /* Pods-BlindSounds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindSounds.release.xcconfig"; path = "Target Support Files/Pods-BlindSounds/Pods-BlindSounds.release.xcconfig"; sourceTree = "<group>"; };
 		7B0BB675F2D75FDAFC95AF7C /* libPods-BlindSounds.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlindSounds.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C700F57C2303FD6C00C611D4 /* mini_asa_coreml_004_078.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = mini_asa_coreml_004_078.mlmodel; sourceTree = "<group>"; };
 		C7734EF022FD4EFB00ECA866 /* BSMicrophoneProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BSMicrophoneProcessor.h; sourceTree = "<group>"; };
 		C7734EF122FD4EFB00ECA866 /* BSMicrophoneProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSMicrophoneProcessor.m; sourceTree = "<group>"; };
 		C7734EF322FD6CF200ECA866 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
@@ -42,7 +43,6 @@
 		C7D92B1B22FC0130004B93A9 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = aubio.framework; sourceTree = "<group>"; };
 		C7D92B1E22FC018A004B93A9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C7D92B2022FC0193004B93A9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		C7D92B2422FC043C004B93A9 /* 27d43eba.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 27d43eba.wav; path = ../../../Downloads/samples/27d43eba.wav; sourceTree = "<group>"; };
 		E0F5CFA9B06DAD9242CE248B /* Pods-BlindSounds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlindSounds.debug.xcconfig"; path = "Target Support Files/Pods-BlindSounds/Pods-BlindSounds.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +83,6 @@
 		C7D92A7522FBFB77004B93A9 = {
 			isa = PBXGroup;
 			children = (
-				C7D92B2222FC040E004B93A9 /* Samples */,
 				C7D92B1B22FC0130004B93A9 /* aubio.framework */,
 				C7D92A8022FBFB77004B93A9 /* BlindSounds */,
 				C7D92A7F22FBFB77004B93A9 /* Products */,
@@ -114,6 +113,7 @@
 				C7D92A8C22FBFB78004B93A9 /* LaunchScreen.storyboard */,
 				C7D92A8F22FBFB78004B93A9 /* Info.plist */,
 				C7D92A9022FBFB78004B93A9 /* main.m */,
+				C700F57C2303FD6C00C611D4 /* mini_asa_coreml_004_078.mlmodel */,
 			);
 			path = BlindSounds;
 			sourceTree = "<group>";
@@ -127,14 +127,6 @@
 				7B0BB675F2D75FDAFC95AF7C /* libPods-BlindSounds.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C7D92B2222FC040E004B93A9 /* Samples */ = {
-			isa = PBXGroup;
-			children = (
-				C7D92B2422FC043C004B93A9 /* 27d43eba.wav */,
-			);
-			path = Samples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +188,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7D92B2522FC043C004B93A9 /* 27d43eba.wav in Resources */,
 				C7D92A8E22FBFB78004B93A9 /* LaunchScreen.storyboard in Resources */,
 				C7D92A8B22FBFB78004B93A9 /* Assets.xcassets in Resources */,
 				C7D92A8922FBFB77004B93A9 /* Main.storyboard in Resources */,
@@ -239,6 +230,7 @@
 				C7D92A9122FBFB78004B93A9 /* main.m in Sources */,
 				C7D92A8322FBFB77004B93A9 /* AppDelegate.m in Sources */,
 				C7734EF222FD4EFB00ECA866 /* BSMicrophoneProcessor.m in Sources */,
+				C700F57D2303FD6C00C611D4 /* mini_asa_coreml_004_078.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +382,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = BlindSounds/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,7 +408,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = BlindSounds/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

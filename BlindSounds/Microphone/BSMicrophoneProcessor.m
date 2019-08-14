@@ -84,7 +84,7 @@
         self.audioInterrupted = NO;
         
         self.win_size=1024;
-        self.hop_size=512;
+        self.hop_size=692;
         self.n_bands=40;
         
         self.pv = new_aubio_pvoc(self.win_size, self.hop_size);
@@ -114,7 +114,7 @@
     AVAudioFormat *audioFormat = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatFloat32 // pcmFormatInt16, pcmFormatFloat32,
                                                                   sampleRate:self.sampleRate // 44100.0 48000.0
                                                                     channels:1 // 1 or 2
-                                                                 interleaved:YES]; // true for interleaved stereo
+                                                                 interleaved:NO]; // true for interleaved stereo
     
     if (self.audioUnit == nil) {
         [self setupRemoteIOAudioUnitForRecord:audioFormat];
@@ -145,14 +145,14 @@
             if (status == noErr) {
                 [weakSelf recordMicrophoneInputSamples:&buffers frameCount:frameCount];
             } else {
-                NSLog(@"error %d", status);
+                NSLog(@"error %d", (int)status);
             }
         }];
         
         NSError *error;
         
         [self _bs_freeCircularBuffer:&_circularBuffer];
-        [self _bs_circularBuffer:&_circularBuffer withSize:24576*5];
+        [self _bs_circularBuffer:&_circularBuffer withSize:self.sampleRate*5];
         [self.audioUnit allocateRenderResourcesAndReturnError:&error];
         [self.audioUnit startHardwareAndReturnError:&error]; // equivalent to AudioOutputUnitStart ???
         self.isRecording = YES;
@@ -189,7 +189,7 @@
     AVAudioFormat *audioFormat = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatFloat32 // pcmFormatInt16, pcmFormatFloat32,
                                                                   sampleRate:self.sampleRate // 44100.0 48000.0
                                                                     channels:1 // 1 or 2
-                                                                 interleaved:YES]; // true for interleaved stereo
+                                                                 interleaved:NO]; // true for interleaved stereo
 
     AudioBuffer *pBuffer = &inputDataList->mBuffers[0];
     AVAudioPCMBuffer *outBuffer = [[AVAudioPCMBuffer alloc] initWithPCMFormat:audioFormat frameCapacity:pBuffer->mDataByteSize];
@@ -206,33 +206,47 @@
 
     uint32_t availableBytes;
     float *sourceBuffer = TPCircularBufferTail(circularBuffer, &availableBytes);
+    availableBytes/=sizeof(float);
+    
+//    if (availableBytes >= self.sampleRate * 4) {
 
-    uint32_t bytesToCopy = self.hop_size;
-    if (availableBytes >= bytesToCopy) {
+//        NSMutableString *textAudio = [NSMutableString new];
+//        for (int i = 0; i < self.sampleRate * 4; i ++) {
+//            [textAudio appendFormat:@"%f ", sourceBuffer[i]];
+//        }
+//
+//        NSLog(@"AUDIO\n%@", textAudio);
 
-        uint_t sampleCount = 0;
+        uint32_t bytesToCopy = self.hop_size;
+        while (availableBytes >= bytesToCopy) {
 
-        fvec_t *samples = new_fvec(self.hop_size);
+            uint_t sampleCount = 0;
 
-        for (int i = 0; i < bytesToCopy; i ++) {
-            float x = sourceBuffer[i];   // copy left  channel sample
+            fvec_t *samples = new_fvec(self.hop_size);
 
-            fvec_set_sample(samples, x, sampleCount);
-            sampleCount +=1;
+            for (int i = 0; i < self.hop_size; i ++) {
+                float x = sourceBuffer[i];   // copy left  channel sample
+
+                fvec_set_sample(samples, x, sampleCount);
+                sampleCount +=1;
+            }
+
+            cvec_t *fftgrain = new_cvec(self.win_size);
+            aubio_pvoc_do(self.pv, samples, fftgrain);
+
+            fvec_t *bands = new_fvec(self.n_bands);
+            aubio_filterbank_do(self.fb, fftgrain, bands);
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate microphoneProcessor:self didProcessBands:bands height:self.n_bands];
+            });
+
+            TPCircularBufferConsume(circularBuffer, bytesToCopy * sizeof(float));
+            
+            sourceBuffer = TPCircularBufferTail(circularBuffer, &availableBytes);
+            availableBytes/=sizeof(float);
         }
-
-        cvec_t *fftgrain = new_cvec(self.win_size);
-        aubio_pvoc_do(self.pv, samples, fftgrain);
-
-        fvec_t *bands = new_fvec(self.n_bands);
-        aubio_filterbank_do(self.fb, fftgrain, bands);
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate microphoneProcessor:self didProcessBands:bands height:self.n_bands];
-        });
-
-        TPCircularBufferConsume(circularBuffer, bytesToCopy);
-    }
+//    }
 }
 
 // set up and activate Audio Session
@@ -259,9 +273,9 @@
     if (self.enableRecording) {
         [audioSession setCategory:AVAudioSessionCategoryRecord error:&error];
     }
-    double preferredIOBufferDuration = 0.0053;  // 5.3 milliseconds = 256 samples
+//    double preferredIOBufferDuration = 0.5;  // секунд
     [audioSession setPreferredSampleRate:self.sampleRate error:&error]; // at 48000.0
-    [audioSession setPreferredIOBufferDuration:preferredIOBufferDuration error:&error];
+//    [audioSession setPreferredIOBufferDuration:preferredIOBufferDuration error:&error];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myAudioSessionInterruptionHandler:) name:AVAudioSessionInterruptionNotification object:nil];
     
