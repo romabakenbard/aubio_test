@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <aubio/aubio.h>
+#import "aubio.h"
 
 @class BSMicrophoneProcessor;
 @protocol BSMicrophoneProcessorDelegate <NSObject>
